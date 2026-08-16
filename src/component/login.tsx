@@ -1,110 +1,222 @@
 import { useState } from 'react'
 import { MdVisibility, MdVisibilityOff } from 'react-icons/md'
-import logo from '../assets/login/logo.png'
-import arrowIcon from '../assets/login/arrow-icon.svg'
+import stripes from '../assets/stripes.svg'
+import nmsLogo from '../assets/nms_logo.svg'
+import ellipse1 from '../assets/login-v2/ellipse-1.svg'
+import ellipse2 from '../assets/login-v2/ellipse-2.svg'
+import iconShieldTrust from '../assets/login-v2/icon-shield-trust.svg'
+import iconMonitoring from '../assets/login/time.svg'
+import iconAlerts from '../assets/login/alert.svg'
+import iconReporting from '../assets/login/audit.svg'
+import iconUser from '../assets/login/user.svg'
+import iconLock from '../assets/login/password.svg'
+import iconArrowRight from '../assets/login/arrow-icon.svg'
+import iconSso from '../assets/login/sos.svg'
 
 interface LoginFormProps {
   onForgotPassword?: () => void
 }
 
+const VALUE_PROPS = [
+  {
+    icon: iconMonitoring,
+    title: 'Live system monitoring',
+    description: 'Power, UPS, cooling and environment — all in one view',
+  },
+  {
+    icon: iconAlerts,
+    title: 'Proactive alerts',
+    description: 'Get notified before issues become incidents',
+  },
+  {
+    icon: iconReporting,
+    title: 'Audit-ready reporting',
+    description: 'Full operational history for compliance and review',
+  },
+]
+
 export default function LoginForm({ onForgotPassword }: LoginFormProps) {
   const [showPassword, setShowPassword] = useState(false)
 
   return (
-    <div className="flex min-h-dvh w-dvw items-center justify-center bg-neutral-50 p-6">
-      <div className="w-full max-w-115 rounded-2xl bg-white px-10 pb-10 pt-6">
-        <img src={logo} alt="Green Power" className="mx-auto mb-3 h-21 w-auto" />
+    <div className="flex min-h-dvh w-dvw bg-white">
+      <div className="relative min-w-0 flex-3 overflow-hidden bg-[#f3f3f3]">
+        <img
+          src={ellipse1}
+          alt=""
+          className="pointer-events-none absolute -right-24 -top-24 size-140"
+        />
+        <img
+          src={ellipse2}
+          alt=""
+          className="pointer-events-none absolute -bottom-16 -left-32 size-155"
+        />
+        <img
+          src={stripes}
+          alt=""
+          className="pointer-events-none absolute inset-0 size-full object-cover"
+        />
 
-        <div className="mb-6 flex flex-col gap-2">
-          <h1 className="text-[2rem] font-semibold leading-10 text-[#1c1c1c]">
-            Welcome back
-          </h1>
-          <p className="text-[0.875rem] leading-5.25 text-[#6b7280]">
-            Please enter your credentials to continue
-          </p>
+        <div className="relative flex h-full flex-col justify-center gap-12 px-16 py-16">
+          <img src={nmsLogo} alt="NMS" className="h-28 w-auto" />
+
+          <div className="flex max-w-155 flex-col gap-5">
+            <h1 className="text-[2.75rem] font-semibold leading-13.5 text-[#1c1c1c]">
+              Protect your uptime.
+              <br />
+              Own your infrastructure.
+            </h1>
+            <p className="text-[1.0625rem] leading-7 text-[#6b7280]">
+              Real-time visibility into power, cooling, UPS and environment
+              systems — built for Vault Infrastructure&apos;s mission-critical
+              infrastructure.
+            </p>
+          </div>
+
+          <div className="flex max-w-140 flex-col gap-5">
+            {VALUE_PROPS.map((prop) => (
+              <div key={prop.title} className="flex items-center gap-4">
+                <div className="flex size-11 shrink-0 items-center justify-center rounded-xl border border-white/14 bg-[#e1eeff]">
+                  <img src={prop.icon} alt="" className="size-5.5" />
+                </div>
+                <div className="flex flex-col gap-0.5">
+                  <p className="text-[0.9375rem] font-medium text-[#1c1c1c]">
+                    {prop.title}
+                  </p>
+                  <p className="text-[0.8125rem] leading-4.5 text-[#6b7280]">
+                    {prop.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex items-center gap-2">
+            <img src={iconShieldTrust} alt="" className="size-4" />
+            <p className="text-[0.75rem] text-[#8ca1c2]">
+              Secure access · Authorized personnel only
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex min-w-0 flex-2 flex-col items-center justify-center gap-8 p-8">
+        <div className="flex w-full max-w-100 flex-col gap-6">
+          <div className="flex flex-col gap-2">
+            <h2 className="text-[1.875rem] font-semibold leading-10 text-[#1b1b21]">
+              Welcome back
+            </h2>
+            <p className="text-[0.875rem] leading-5.25 text-[#6b7380]">
+              Sign in to your infrastructure dashboard
+            </p>
+          </div>
+
+          <form className="flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
+            <div className="flex flex-col gap-2">
+              <label
+                htmlFor="email"
+                className="text-[0.875rem] font-medium text-[#374151]"
+              >
+                Email address
+              </label>
+              <div className="flex items-center gap-2.5 rounded-[0.625rem] border border-[#e0e5ed] bg-white px-4 py-3.5">
+                <img src={iconUser} alt="" className="size-4.5 shrink-0" />
+                <input
+                  id="email"
+                  type="email"
+                  placeholder="you@vaultinfra.com"
+                  className="w-full text-[0.875rem] text-[#1c1c1c] placeholder:text-[#9ca3af] focus:outline-none"
+                />
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <div className="flex items-center justify-between">
+                <label
+                  htmlFor="password"
+                  className="text-[0.875rem] font-medium text-[#374151]"
+                >
+                  Password
+                </label>
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    onForgotPassword?.()
+                  }}
+                  className="text-[0.75rem] font-medium text-[#0073ff]"
+                >
+                  Forgot password?
+                </a>
+              </div>
+              <div className="flex items-center gap-2.5 rounded-[0.625rem] border border-[#e0e5ed] bg-white px-4 py-3.5">
+                <img src={iconLock} alt="" className="size-4.5 shrink-0" />
+                <input
+                  id="password"
+                  type={showPassword ? 'text' : 'password'}
+                  placeholder="Enter your password"
+                  className="w-full text-[0.875rem] text-[#1c1c1c] placeholder:text-[#9ca3af] focus:outline-none"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword((prev) => !prev)}
+                  aria-label={showPassword ? 'Hide password' : 'Show password'}
+                  className="shrink-0 text-[#9ca3af]"
+                >
+                  {showPassword ? (
+                    <MdVisibilityOff className="size-4.5" />
+                  ) : (
+                    <MdVisibility className="size-4.5" />
+                  )}
+                </button>
+              </div>
+            </div>
+
+            <label className="flex items-center gap-2.5">
+              <input
+                type="checkbox"
+                className="size-4.5 rounded-[0.3125rem] border-[0.09375rem] border-[#e0e5ed] text-[#0073ff] focus:ring-[#0073ff]"
+              />
+              <span className="text-[0.8125rem] text-[#6b7380]">
+                Remember me for 30 days
+              </span>
+            </label>
+
+            <button
+              type="submit"
+              className="flex h-12 w-full items-center justify-center gap-2 rounded-[0.625rem] bg-[#0073ff] text-[0.9375rem] font-medium text-white shadow-[0rem_0.625rem_0.46875rem_rgba(0,115,255,0.2),0rem_0.25rem_0.1875rem_rgba(0,115,255,0.2)]"
+            >
+              Sign in
+              <img src={iconArrowRight} alt="" className="size-4.5" />
+            </button>
+
+            <div className="flex items-center gap-3.5">
+              <div className="h-px flex-1 bg-[#e0e5ed]" />
+              <p className="whitespace-nowrap text-[0.75rem] text-[#9ca3af]">
+                or continue with
+              </p>
+              <div className="h-px flex-1 bg-[#e0e5ed]" />
+            </div>
+
+            <button
+              type="button"
+              className="flex w-full items-center justify-center gap-2.5 rounded-[0.625rem] border border-[#e0e5ed] bg-white py-3.25 text-[0.875rem] font-medium text-[#1b1b21]"
+            >
+              <img src={iconSso} alt="" className="size-4.5" />
+              Single Sign-On (SSO)
+            </button>
+          </form>
         </div>
 
-        <form className="flex flex-col gap-5" onSubmit={(e) => e.preventDefault()}>
-          <div className="flex flex-col gap-2">
-            <label
-              htmlFor="email"
-              className="text-[0.875rem] font-medium leading-5.25 text-[#374151]"
-            >
-              Email address
-            </label>
-            <input
-              id="email"
-              type="email"
-              placeholder="name@example.com"
-              className="h-12 w-full rounded-[0.625rem] border border-[#d1d5db] px-4 text-[0.875rem] text-[#1c1c1c] placeholder:text-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#008236]/30"
-            />
-          </div>
+        <p className="flex items-center gap-1.25 text-[0.8125rem]">
+          <span className="text-[#6b7380]">Don&apos;t have an account?</span>
+          <span className="font-medium text-[#0073ff]">
+            Contact your administrator
+          </span>
+        </p>
 
-          <div className="flex flex-col gap-2">
-            <div className="flex items-center justify-between">
-              <label
-                htmlFor="password"
-                className="text-[0.875rem] font-medium leading-5.25 text-[#374151]"
-              >
-                Password
-              </label>
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault()
-                  onForgotPassword?.()
-                }}
-                className="text-[0.75rem] font-medium leading-4.5 text-[#ef4444]"
-              >
-                Forgot password?
-              </a>
-            </div>
-            <div className="relative">
-              <input
-                id="password"
-                type={showPassword ? 'text' : 'password'}
-                placeholder="Enter your password"
-                className="h-12 w-full rounded-[0.625rem] border border-[#d1d5db] pl-4 pr-12 text-[0.875rem] text-[#1c1c1c] placeholder:text-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#008236]/30"
-              />
-              <button
-                type="button"
-                onClick={() => setShowPassword((prev) => !prev)}
-                aria-label={showPassword ? 'Hide password' : 'Show password'}
-                className="absolute right-1 top-1/2 flex size-6.5 -translate-y-1/2 items-center justify-center text-[#9ca3af]"
-              >
-                {showPassword ? (
-                  <MdVisibilityOff className="size-4.5" />
-                ) : (
-                  <MdVisibility className="size-4.5" />
-                )}
-              </button>
-            </div>
-          </div>
-
-          <label className="flex items-center gap-2">
-            <input
-              type="checkbox"
-              className="size-4 rounded-sm border border-[#bdbdbd] text-[#008236] focus:ring-[#008236]"
-            />
-            <span className="text-[0.8125rem] leading-[1.21875rem] text-[#4b5563]">
-              Remember me for 30 days
-            </span>
-          </label>
-
-          <button
-            type="submit"
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-[0.625rem] bg-[#008236] text-[0.9375rem] font-medium text-white"
-          >
-            Sign in
-            <img src={arrowIcon} alt="" className="size-4.5" />
-          </button>
-        </form>
-
-        <p className="mt-8 text-center text-[0.8125rem] leading-[1.21875rem] text-[#6b7280]">
-          Don&apos;t have an account?{' '}
-          <a href="#" className="font-semibold text-[#00c950]">
-            Sign up
-          </a>
+        <p className="text-[0.75rem] text-[#9ca3af]">
+          © 2025 VaultNet Systems · Built for Vault Infrastructure
         </p>
       </div>
     </div>
