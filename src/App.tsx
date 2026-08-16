@@ -11,7 +11,12 @@ function App() {
   const [resetEmail, setResetEmail] = useState("");
 
   if (view === "set-password") {
-    return <SetPassword onResetPassword={() => setView("login")} />;
+    return (
+      <SetPassword
+        onBack={() => setView("reset-mail")}
+        onResetPassword={() => setView("login")}
+      />
+    );
   }
 
   if (view === "reset-mail") {
