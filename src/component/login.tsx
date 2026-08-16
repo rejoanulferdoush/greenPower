@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { MdVisibility, MdVisibilityOff } from 'react-icons/md'
 import BrandPanel from './BrandPanel'
+import nmsLogo from '../assets/nms_logo.svg'
 import iconUser from '../assets/login/user.svg'
 import iconLock from '../assets/login/password.svg'
 import iconArrowRight from '../assets/login/arrow-icon.svg'
@@ -14,13 +15,15 @@ export default function LoginForm({ onForgotPassword }: LoginFormProps) {
   const [showPassword, setShowPassword] = useState(false)
 
   return (
-    <div className="flex min-h-dvh w-dvw bg-white">
+    <div className="flex min-h-dvh w-dvw flex-col overflow-y-auto bg-white lg:flex-row">
       <BrandPanel />
 
-      <div className="flex min-w-0 flex-2 flex-col items-center justify-center gap-8 p-8">
-        <div className="flex w-full max-w-100 flex-col gap-6">
+      <div className="flex min-w-0 flex-1 flex-col items-center justify-center gap-6 p-4 py-8 sm:gap-8 sm:p-6 sm:py-10 landscape:gap-5 landscape:py-6 md:p-8 lg:flex-2">
+        <img src={nmsLogo} alt="NMS" className="h-10 w-auto lg:hidden" />
+
+        <div className="flex w-full max-w-100 flex-col gap-5 sm:gap-6">
           <div className="flex flex-col gap-2">
-            <h2 className="text-[1.875rem] font-semibold leading-10 text-[#1b1b21]">
+            <h2 className="text-[1.5rem] font-semibold leading-9 text-[#1b1b21] sm:text-[1.875rem] sm:leading-10">
               Welcome back
             </h2>
             <p className="text-[0.875rem] leading-5.25 text-[#6b7380]">
@@ -28,7 +31,7 @@ export default function LoginForm({ onForgotPassword }: LoginFormProps) {
             </p>
           </div>
 
-          <form className="flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
+          <form className="flex flex-col gap-5 sm:gap-6" onSubmit={(e) => e.preventDefault()}>
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="email"
