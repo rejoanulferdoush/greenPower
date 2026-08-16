@@ -23,7 +23,9 @@
       "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/0b8de1b2-9352-4cbd-8916-9e8091f87109.svg\" -o ellipse-1.svg)",
       "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/b304eec8-e64c-4c6a-8804-e268322b7d41.svg\" -o ellipse-2.svg)",
       "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/95a3a656-79a8-4034-9103-d2cfa220bd39.svg\" -o logo-mark-1.svg)",
-      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/03940579-6f6b-444d-8ced-72c15a79f519.svg\" -o logo-mark-2.svg)"
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/03940579-6f6b-444d-8ced-72c15a79f519.svg\" -o logo-mark-2.svg)",
+      "Bash(grep -o \"shadow-\\\\\\\\\\\\[0rem\" dist/assets/*.css)",
+      "Bash(node -e \"console.log\\(require\\('fs'\\).readFileSync\\(require\\('child_process'\\).execSync\\('ls dist/assets/*.css'\\).toString\\(\\).trim\\(\\),'utf8'\\).includes\\('115,255,0.05'\\)\\)\")"
     ]
   }
 }
