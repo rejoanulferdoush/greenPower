@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(powershell -NoProfile -Command 'Get-Process -Name node -ErrorAction SilentlyContinue | Where-Object { $_.Path -and \\(Get-CimInstance Win32_Process -Filter \"ProcessId=$\\($_.Id\\)\"\\).CommandLine -match '\\\\''vite'\\\\'' } | Stop-Process -Force')",
+      "mcp__claude_ai_Figma__get_design_context",
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/648ce7e2-2452-4ca7-88c4-f20a7402605f.png\" -o /d/react_practice/initial/src/assets/login/logo.png)",
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/ee01ada0-374b-4d10-9de7-6cc43b76936e.svg\" -o /d/react_practice/initial/src/assets/login/eye-outline.svg)",
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/76835381-5b7f-4192-90ce-866a96363eb0.svg\" -o /d/react_practice/initial/src/assets/login/eye-pupil.svg)",
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/fae0975f-a36d-47fe-b757-5a30667c1055.svg\" -o /d/react_practice/initial/src/assets/login/arrow-icon.svg)",
+      "Bash(npx tsc *)",
+      "mcp__claude_ai_Figma__get_metadata",
+      "Bash(python3 *)",
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/60c3b3f7-3711-4945-b52f-c179a55eaa97.svg\" -o /d/react_practice/initial/src/assets/forgot-password/back-arrow.svg)",
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/5afb3146-636c-4566-a7ba-b8bbd9edbdea.svg\" -o /d/react_practice/initial/src/assets/forgot-password/mail-icon.svg)",
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/84286e6b-3796-4523-b24f-09334cc27231.svg\" -o /d/react_practice/initial/src/assets/reset-mail/back-arrow.svg)",
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/69a3c3f9-3856-4307-bdbb-1105806c39fb.svg\" -o /d/react_practice/initial/src/assets/reset-mail/check-circle.svg)",
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/3d5cd243-aac4-4377-b358-f2e2c6d0ea5c.svg\" -o /d/react_practice/initial/src/assets/reset-mail/mail-outline.svg)",
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/fb2e9ec8-1001-49a9-be80-a80124a690ea.svg\" -o /d/react_practice/initial/src/assets/reset-mail/mail-icon.svg)",
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/ba23ecd9-da19-4060-b4d4-6e6d9f929822.svg\" -o /d/react_practice/initial/src/assets/set-password/lock-icon.svg)",
+      "Bash(mkdir -p /d/react_practice/initial/src/assets/login-v2)",
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/0b8de1b2-9352-4cbd-8916-9e8091f87109.svg\" -o ellipse-1.svg)",
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/b304eec8-e64c-4c6a-8804-e268322b7d41.svg\" -o ellipse-2.svg)",
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/95a3a656-79a8-4034-9103-d2cfa220bd39.svg\" -o logo-mark-1.svg)",
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/03940579-6f6b-444d-8ced-72c15a79f519.svg\" -o logo-mark-2.svg)"
+    ]
+  }
+}
