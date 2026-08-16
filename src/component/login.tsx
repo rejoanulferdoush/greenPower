@@ -2,8 +2,6 @@ import { useState } from 'react'
 import { MdVisibility, MdVisibilityOff } from 'react-icons/md'
 import BrandPanel from './BrandPanel'
 import nmsLogo from '../assets/nms_logo.svg'
-import iconUser from '../assets/login/user.svg'
-import iconLock from '../assets/login/password.svg'
 import iconArrowRight from '../assets/login/arrow-icon.svg'
 import iconSso from '../assets/login/sos.svg'
 
@@ -15,7 +13,7 @@ export default function LoginForm({ onForgotPassword }: LoginFormProps) {
   const [showPassword, setShowPassword] = useState(false)
 
   return (
-    <div className="flex min-h-dvh w-dvw flex-col overflow-y-auto bg-white lg:flex-row">
+    <div className="flex min-h-dvh w-full flex-col bg-white lg:flex-row">
       <BrandPanel />
 
       <div className="flex min-w-0 flex-1 flex-col items-center justify-center gap-6 p-4 py-8 sm:gap-8 sm:p-6 sm:py-10 landscape:gap-5 landscape:py-6 md:p-8 lg:flex-2">
@@ -39,15 +37,12 @@ export default function LoginForm({ onForgotPassword }: LoginFormProps) {
               >
                 Email address
               </label>
-              <div className="flex items-center gap-2.5 rounded-[0.625rem] border border-[#e0e5ed] bg-white px-4 py-3.5">
-                <img src={iconUser} alt="" className="size-4.5 shrink-0" />
-                <input
-                  id="email"
-                  type="email"
-                  placeholder="you@vaultinfra.com"
-                  className="w-full text-[0.875rem] text-[#1c1c1c] placeholder:text-[#9ca3af] focus:outline-none"
-                />
-              </div>
+              <input
+                id="email"
+                type="email"
+                placeholder="you@vaultinfra.com"
+                className="h-12 w-full rounded-[0.625rem] border border-[#e0e5ed] px-4 text-[0.875rem] text-[#1c1c1c] outline-none transition-colors placeholder:text-[#9ca3af] forced-color-adjust-none focus:border-[#0073ff] focus:[box-shadow:0_0_0_0.1875rem_rgba(0,115,255,0.3)]"
+              />
             </div>
 
             <div className="flex flex-col gap-2">
@@ -69,19 +64,18 @@ export default function LoginForm({ onForgotPassword }: LoginFormProps) {
                   Forgot password?
                 </a>
               </div>
-              <div className="flex items-center gap-2.5 rounded-[0.625rem] border border-[#e0e5ed] bg-white px-4 py-3.5">
-                <img src={iconLock} alt="" className="size-4.5 shrink-0" />
+              <div className="relative">
                 <input
                   id="password"
                   type={showPassword ? 'text' : 'password'}
                   placeholder="Enter your password"
-                  className="w-full text-[0.875rem] text-[#1c1c1c] placeholder:text-[#9ca3af] focus:outline-none"
+                  className="h-12 w-full rounded-[0.625rem] border border-[#e0e5ed] pl-4 pr-12 text-[0.875rem] text-[#1c1c1c] outline-none transition-colors placeholder:text-[#9ca3af] forced-color-adjust-none focus:border-[#0073ff] focus:[box-shadow:0_0_0_0.1875rem_rgba(0,115,255,0.3)]"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword((prev) => !prev)}
                   aria-label={showPassword ? 'Hide password' : 'Show password'}
-                  className="shrink-0 text-[#9ca3af]"
+                  className="absolute right-1 top-1/2 flex size-6.5 -translate-y-1/2 items-center justify-center text-[#9ca3af]"
                 >
                   {showPassword ? (
                     <MdVisibilityOff className="size-4.5" />
@@ -95,7 +89,7 @@ export default function LoginForm({ onForgotPassword }: LoginFormProps) {
             <label className="flex items-center gap-2.5">
               <input
                 type="checkbox"
-                className="size-4.5 rounded-[0.3125rem] border-[0.09375rem] border-[#e0e5ed] text-[#0073ff] focus:ring-[#0073ff]"
+                className="size-4.5 rounded-[0.3125rem] border-[0.09375rem] border-[#e0e5ed] text-[#0073ff] focus:outline-none focus:ring-2 focus:ring-[#0073ff]/30"
               />
               <span className="text-[0.8125rem] text-[#6b7380]">
                 Remember me for 30 days

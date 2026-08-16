@@ -1,4 +1,5 @@
 import BrandPanel from './BrandPanel'
+import nmsLogo from '../assets/nms_logo.svg'
 import backArrow from '../assets/reset-mail/back-arrow.svg'
 import checkCircle from '../assets/reset-mail/check-circle.svg'
 import mailOutline from '../assets/reset-mail/mail-outline.svg'
@@ -20,11 +21,13 @@ export default function ResetMail({
   onResetPassword,
 }: ResetMailProps) {
   return (
-    <div className="flex min-h-dvh w-dvw bg-white">
+    <div className="flex min-h-dvh w-full flex-col bg-white lg:flex-row">
       <BrandPanel />
 
-      <div className="flex min-w-0 flex-2 flex-col items-center justify-center gap-8 p-8">
-        <div className="w-full max-w-115 rounded-4xl bg-white p-10">
+      <div className="flex min-w-0 flex-1 flex-col items-center justify-center gap-6 p-4 py-8 sm:gap-8 sm:p-6 sm:py-10 landscape:gap-5 landscape:py-6 md:p-8 lg:flex-2">
+        <img src={nmsLogo} alt="NMS" className="h-10 w-auto lg:hidden" />
+
+        <div className="w-full max-w-100 rounded-3xl bg-white p-6 sm:max-w-115 sm:rounded-4xl sm:p-8 md:p-10">
           <button
             type="button"
             onClick={onBack}
@@ -40,14 +43,14 @@ export default function ResetMail({
             </div>
 
             <div className="flex flex-col items-center gap-2 text-center">
-              <h1 className="text-[2rem] font-semibold leading-10 text-[#1c1c1c]">
+              <h1 className="text-[1.5rem] font-semibold leading-9 text-[#1c1c1c] sm:text-[2rem] sm:leading-10">
                 Check your email
               </h1>
               <div className="flex flex-col gap-1">
                 <p className="text-[0.875rem] leading-5.25 text-[#6b7280]">
                   We sent a password reset link to
                 </p>
-                <p className="text-[0.875rem] font-semibold leading-5.25 text-[#1c1c1c]">
+                <p className="break-words text-[0.875rem] font-semibold leading-5.25 text-[#1c1c1c]">
                   {email}
                 </p>
               </div>
